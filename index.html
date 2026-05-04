@@ -15,46 +15,32 @@
   --purple:#afa9ec;
   --coral:#f0997b;
   --gray:#888780;
-  --amberD:#412402;
-  --tealD:#04342c;
-  --purpleD:#26215c;
-  --coralD:#4a1b0c;
-  --grayD:#2c2c2a;
 }
 body{background:var(--bg);color:var(--text);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;line-height:1.6}
-.wrap{padding:16px}
+.wrap{padding:24px 32px 32px}
 .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;font-weight:500}
 .video-shell{position:relative;width:100%;padding-bottom:56.25%;background:var(--bg3);border-radius:8px;overflow:hidden;border:0.5px solid var(--border)}
 .video-shell iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 .diag{padding:8px 10px;background:var(--bg3);border-radius:6px;border:0.5px solid var(--border);font-size:11px;color:var(--text2);line-height:1.55;margin-top:8px}
 .diag b{color:var(--text)}
-.top-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px;margin-bottom:16px}
+.top-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:16px;margin-bottom:20px}
 .notes-panel{display:flex;flex-direction:column;gap:7px}
 .note-card{padding:8px 10px;border-radius:6px;font-size:11px;line-height:1.55;border:0.5px solid}
 .note-card b{font-weight:500}
 .chip{display:inline-block;font-size:10px;padding:3px 8px;border-radius:20px;margin:2px 3px 2px 0;cursor:pointer;border:0.5px solid;opacity:.75;transition:opacity .15s}
 .chip:hover{opacity:1}
-.pipe-row{display:flex;gap:0;margin-bottom:10px;overflow-x:auto}
-.pnode{flex:1;min-width:96px;background:var(--bg2);border:0.5px solid var(--border);padding:10px 8px;cursor:pointer;transition:background .15s;text-align:center}
-.pnode:first-child{border-radius:6px 0 0 6px}
-.pnode:last-child{border-radius:0 6px 6px 0}
-.pnode:not(:last-child){border-right:none}
-.pnode:hover{background:var(--bg3)}
-.pnode.active{background:var(--bg3)}
-.pnode-name{font-size:11px;font-weight:500;margin-bottom:2px}
-.pnode-sub{font-size:10px;color:var(--text3)}
 .btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .sbtn{background:none;border:0.5px solid var(--border2);border-radius:6px;padding:5px 11px;font-size:11px;color:var(--text2);cursor:pointer;font-family:inherit;transition:all .15s}
 .sbtn.active{border-color:var(--text2);color:var(--text);background:var(--bg3)}
 .sbtn:hover:not(.active){background:var(--bg3)}
-.detail{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:14px;transition:opacity .2s;min-height:180px}
+.detail{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:16px;transition:opacity .2s;min-height:180px}
 .dtag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:8px}
 .row{display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:0.5px solid var(--border);font-size:12px}
 .row:last-child{border:none}
 .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .bw{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
 .bf{height:100%;border-radius:2px;transition:width .4s}
-.qbox{padding:10px 12px;background:var(--bg3);border-radius:6px;border-left:3px solid;font-size:13px;line-height:1.55;margin-bottom:10px}
+.qbox{padding:10px 12px;background:var(--bg3);border-radius:6px;border-left:3px solid;font-size:12px;line-height:1.55;margin-bottom:10px}
 .mr{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:0.5px solid var(--border)}
 .mr:last-child{border:none}
 .twocol{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
@@ -139,9 +125,9 @@ const stages=[
   {label:"Tensor / θᵗ — World AI",color:A,html:`
     <div class="dtag" style="color:${A}">Raw input — undifferentiated, entangled</div>
     <div style="font-size:12px;color:#9a9890;margin-bottom:9px">The clip arrives as a tensor: claims, evidence fragments, emotional framing, historical context. Nothing weighted. <b style="color:#e4e2dc">High epidemic speed, near-zero epistemic speed.</b></div>
-    <div class="row"><div class="dot" style="background:#ef9f27"></div><span>\"Elites hate Americans\" (scalar claim)</span></div>
+    <div class="row"><div class="dot" style="background:#ef9f27"></div><span>"Elites hate Americans" (scalar claim)</span></div>
     <div class="row"><div class="dot" style="background:#ba7517"></div><span>Kristol 2017 quote (evidence fragment)</span></div>
-    <div class="row"><div class="dot" style="background:#ef9f27"></div><span>\"Immigration replaces working class\" (claim)</span></div>
+    <div class="row"><div class="dot" style="background:#ef9f27"></div><span>"Immigration replaces working class" (claim)</span></div>
     <div class="row"><div class="dot" style="background:#854f0b"></div><span>Iraq war / PNAC advocacy (historical context)</span></div>
     <div class="row"><div class="dot" style="background:#ef9f27"></div><span>Betrayal narrative + Rorschach framing (noise)</span></div>
     <div style="margin-top:9px;font-size:11px;color:#6a6864">ΔI ≈ 0 &nbsp;·&nbsp; T ↓ &nbsp;·&nbsp; C ↓ &nbsp;→ epidemic speed dominates</div>
@@ -150,7 +136,7 @@ const stages=[
     <div class="dtag" style="color:${T}">Map structured ignorance — separate signal from co-movement</div>
     <div style="font-size:12px;color:#9a9890;margin-bottom:9px">Perception AI maps covariance across claim-evidence pairs. Off-diagonal entries reveal which connections are spurious. What the video skips: disentangling correlation from cause.</div>
     <div class="row"><span style="flex:1">Foreign policy stance ↔ domestic contempt</span><div style="width:90px"><div class="bw"><div class="bf" style="width:75%;background:#1d9e75"></div></div></div><span style="color:#6a6864;min-width:30px;text-align:right">0.75</span></div>
-    <div class="row"><span style="flex:1">Kristol quote ↔ \"hatred\" interpretation</span><div style="width:90px"><div class="bw"><div class="bf" style="width:52%;background:#1d9e75"></div></div></div><span style="color:#6a6864;min-width:30px;text-align:right">0.52</span></div>
+    <div class="row"><span style="flex:1">Kristol quote ↔ "hatred" interpretation</span><div style="width:90px"><div class="bw"><div class="bf" style="width:52%;background:#1d9e75"></div></div></div><span style="color:#6a6864;min-width:30px;text-align:right">0.52</span></div>
     <div class="row"><span style="flex:1">Iraq war advocacy ↔ foreign loyalty claim</span><div style="width:90px"><div class="bw"><div class="bf" style="width:38%;background:#5dcaa5"></div></div></div><span style="color:#6a6864;min-width:30px;text-align:right">0.38</span></div>
     <div class="row"><span style="flex:1">Elite renewal view ↔ replacement motive</span><div style="width:90px"><div class="bw"><div class="bf" style="width:21%;background:#9fe1cb"></div></div></div><span style="color:#6a6864;min-width:30px;text-align:right">0.21</span></div>
     <div style="margin-top:9px;padding:8px 10px;background:#1a1a1e;border-radius:5px;font-size:11px;color:#9a9890">Missing: causal mechanism? Counterexamples? Base rates for elite contempt? Variance in neocon views?</div>
@@ -161,12 +147,12 @@ const stages=[
     <div class="row"><div class="dot" style="background:#7f77dd"></div><div style="flex:1"><div style="font-size:12px;font-weight:500;color:#e4e2dc">λ₁ — Elite/populist disconnect (λ = 0.81)</div><div style="font-size:11px;color:#9a9890">Strongest component. Real, robustly supported. Survives cross-domain reuse.</div></div></div>
     <div class="row"><div class="dot" style="background:#afa9ec"></div><div style="flex:1"><div style="font-size:12px;font-weight:500;color:#e4e2dc">λ₂ — Incentive misalignment in FP (λ = 0.44)</div><div style="font-size:11px;color:#9a9890">Moderate signal. Conflated with ideology, class, institutional capture. Needs causal graph 𝒢.</div></div></div>
     <div class="row"><div class="dot" style="background:#cecbf6"></div><div style="flex:1"><div style="font-size:12px;font-weight:500;color:#e4e2dc">λ₃ — Intentional ethnic replacement (λ = 0.09)</div><div style="font-size:11px;color:#9a9890">Weakly supported. High-variance memetic noise. Largely vanishes in diagonalization.</div></div></div>
-    <div style="margin-top:9px;font-size:11px;color:#6a6864">Eigenmodes reduce τ (tokens to represent truth). Acting on Θ = Σ⁻¹ maximizes ΔKnowledge per token.</div>
+    <div style="margin-top:9px;font-size:11px;color:#6a6864">Eigenmodes reduce τ. Acting on Θ = Σ⁻¹ maximizes ΔKnowledge per token.</div>
   `},
   {label:"Scalar h(ε) — Embodied AI",color:C,html:`
     <div class="dtag" style="color:${C}">Best-supported compression — decision-ready residual</div>
-    <div class="qbox" style="border-color:${C};color:#e4e2dc;font-size:12px">"Elite/populist tension is real (λ₁). Incentive misalignment plausible (λ₂). Causal link to active hatred or ethnic replacement is weakly supported — high-variance interpretation."</div>
-    <div class="mr"><span>Confidence</span><span style="font-weight:500">${"0.42"}</span></div>
+    <div class="qbox" style="border-color:${C};color:#e4e2dc">"Elite/populist tension is real (λ₁). Incentive misalignment plausible (λ₂). Causal link to active hatred or ethnic replacement is weakly supported — high-variance interpretation."</div>
+    <div class="mr"><span>Confidence</span><span style="font-weight:500">0.42</span></div>
     <div class="mr"><span>Uncertainty drivers</span><span style="color:#9a9890">Missing causal data, selective evidence, no falsification</span></div>
     <div class="mr"><span>Pipeline verdict on clip</span><span style="color:${T};font-weight:500">Downweighted, not censored</span></div>
     <div style="margin-top:9px;font-size:11px;color:#9a9890">The pipeline ranks by ΔI/(T·τ). Tucker's clip ranks high on epidemic speed, low on epistemic yield — downweighted in an epistemic feed, not removed.</div>
