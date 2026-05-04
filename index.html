@@ -1,56 +1,268 @@
-
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0d0d0f;
-  --bg2:#131316;
-  --bg3:#1a1a1e;
-  --border:#2a2a32;
-  --border2:#3a3a44;
-  --text:#e4e2dc;
-  --text2:#9a9890;
-  --text3:#6a6864;
-  --amber:#e8c97a;
-  --teal:#5dcaa5;
-  --purple:#afa9ec;
-  --coral:#f0997b;
-  --gray:#888780;
+* {
+  box-sizing: border-box;
 }
-body{background:var(--bg);color:var(--text);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;line-height:1.6}
-.wrap{padding:24px 32px 32px}
-.label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;font-weight:500}
-.video-shell{position:relative;width:100%;padding-bottom:56.25%;background:var(--bg3);border-radius:8px;overflow:hidden;border:0.5px solid var(--border)}
-.video-shell iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
-.diag{padding:8px 10px;background:var(--bg3);border-radius:6px;border:0.5px solid var(--border);font-size:11px;color:var(--text2);line-height:1.55;margin-top:8px}
-.diag b{color:var(--text)}
-.top-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:16px;margin-bottom:20px}
-.notes-panel{display:flex;flex-direction:column;gap:7px}
-.note-card{padding:8px 10px;border-radius:6px;font-size:11px;line-height:1.55;border:0.5px solid}
-.note-card b{font-weight:500}
-.chip{display:inline-block;font-size:10px;padding:3px 8px;border-radius:20px;margin:2px 3px 2px 0;cursor:pointer;border:0.5px solid;opacity:.75;transition:opacity .15s}
-.chip:hover{opacity:1}
-.btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.sbtn{background:none;border:0.5px solid var(--border2);border-radius:6px;padding:5px 11px;font-size:11px;color:var(--text2);cursor:pointer;font-family:inherit;transition:all .15s}
-.sbtn.active{border-color:var(--text2);color:var(--text);background:var(--bg3)}
-.sbtn:hover:not(.active){background:var(--bg3)}
-.detail{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:16px;transition:opacity .2s;min-height:180px}
-.dtag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:8px}
-.row{display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:0.5px solid var(--border);font-size:12px}
-.row:last-child{border:none}
-.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.bw{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
-.bf{height:100%;border-radius:2px;transition:width .4s}
-.qbox{padding:10px 12px;background:var(--bg3);border-radius:6px;border-left:3px solid;font-size:12px;line-height:1.55;margin-bottom:10px}
-.mr{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:0.5px solid var(--border)}
-.mr:last-child{border:none}
-.twocol{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.mini{background:var(--bg3);border-radius:6px;padding:9px 10px}
-.mini-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
-.action-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
-.abtn{background:none;border:0.5px solid var(--border2);border-radius:6px;padding:5px 11px;font-size:11px;color:var(--text2);cursor:pointer;font-family:inherit;transition:all .15s}
-.abtn:hover{background:var(--bg3);color:var(--text)}
-@keyframes flowR{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
-.fl{stroke-dasharray:6 4;animation:flowR 1.2s linear infinite}
+
+:root {
+  --bg: #0d0d0f;
+  --bg2: #131316;
+  --bg3: #1a1a1e;
+  --border: #2a2a32;
+  --border2: #3a3a44;
+  --text: #e4e2dc;
+  --text2: #9a9890;
+  --text3: #6a6864;
+  --amber: #e8c97a;
+  --teal: #5dcaa5;
+  --purple: #afa9ec;
+  --coral: #f0997b;
+  --gray: #888780;
+}
+
+/* Modern base */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  padding: 32px 40px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Typography & Labels */
+.label {
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+/* Video */
+.video-shell {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: var(--bg3);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 0.5px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.video-shell iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Diagnosis */
+.diag {
+  padding: 14px 16px;
+  background: var(--bg3);
+  border-radius: 8px;
+  border: 0.5px solid var(--border);
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.55;
+}
+
+/* Grid */
+.top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+/* Notes */
+.notes-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note-card {
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.55;
+  border: 0.5px solid;
+}
+
+.note-card b {
+  font-weight: 500;
+}
+
+/* Chips */
+.chip {
+  display: inline-block;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin: 3px 4px 3px 0;
+  cursor: pointer;
+  border: 0.5px solid;
+  opacity: .75;
+  transition: opacity .15s;
+}
+
+.chip:hover {
+  opacity: 1;
+}
+
+/* Stage buttons */
+.btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.sbtn {
+  background: none;
+  border: 0.5px solid var(--border2);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 11px;
+  color: var(--text2);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .15s;
+}
+
+.sbtn.active {
+  border-color: var(--text2);
+  color: var(--text);
+  background: var(--bg3);
+}
+
+.sbtn:hover:not(.active) {
+  background: var(--bg3);
+}
+
+/* Detail card */
+.detail {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: opacity .2s;
+  min-height: 200px;
+}
+
+/* Rows */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 0.5px solid var(--border);
+  font-size: 12px;
+}
+
+.row:last-child {
+  border: none;
+}
+
+/* Other components */
+.dtag {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.qbox {
+  padding: 14px 16px;
+  background: var(--bg3);
+  border-radius: 8px;
+  border-left: 3px solid;
+  font-size: 12px;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.mr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.mr:last-child {
+  border: none;
+}
+
+.twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.mini {
+  background: var(--bg3);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.mini-lbl {
+  font-size: 10px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+}
+
+.action-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.abtn {
+  background: none;
+  border: 0.5px solid var(--border2);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 11px;
+  color: var(--text2);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .15s;
+}
+
+.abtn:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+/* SVG Flow */
+@keyframes flowR {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
+}
+
+.fl {
+  stroke-dasharray: 6 4;
+  animation: flowR 1.2s linear infinite;
+}
 </style>
 
 <div class="wrap">
@@ -74,7 +286,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Mono',ui-monos
 
 <div class="label">Epistemic pipeline — TMVES</div>
 
-<svg width="100%" viewBox="0 0 680 56" role="img" style="margin-bottom:10px">
+<svg width="100%" viewBox="0 0 680 56" role="img" style="margin-bottom:16px">
   <title>TMVES epistemic pipeline</title>
   <desc>Five stages: Tensor, Covariance, Eigenmodes, Scalar, Update</desc>
   <defs>
